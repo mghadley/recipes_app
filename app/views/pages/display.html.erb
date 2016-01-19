@@ -1,0 +1,9 @@
+<% @recipes.each do |r| %>
+	<ul>
+		<li><%= r.title %></li>
+		<li><%= r.instruction.gsub(/\n/, '<br/>').html_safe %></li>
+		<% r.ingredients.each do |i| %>
+			<li><%= i.name %></li>
+		<% end %>
+	</ul>
+<% end %>

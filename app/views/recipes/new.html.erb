@@ -8,7 +8,10 @@
 	<%= f.label :instruction %>
 	<%= f.text_area(:instruction, size: "50x10") %>
 
-	<%= f.fields_for :ingredient do |i| %>
+	<h3>Ingredients</h3>
+	<p>Example: 1/2 Cups Sugar</p>
+
+	<%= f.fields_for :ingredients do |i| %>
 		<%= i.label :name %>
 		<%= i.text_field :name %>
 	<% end %>

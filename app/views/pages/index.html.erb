@@ -1,6 +1,6 @@
 <ul>
 	<li><%= @recipe.title %></li>
-	<li><%= @recipe.instruction %></li>
+	<li><%= @recipe.instruction.gsub(/\n/, '<br/>').html_safe %></li>
 	<% @recipe.ingredients.each do |i| %>
 		<li><%= i.name %></li>
 <% end %>

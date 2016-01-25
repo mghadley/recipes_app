@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
 												 category_id: safe_params[:category_id])
 		if @recipe.save
 			20.times do |i|
-			  @recipe.ingredients << Ingredient.find_or_create_by(name: ingredient_params[:ingredients_attributes]["#{i}"][:name].titleize)
+			  @recipe.ingredients << Ingredient.find_or_create_by(ingredient_params[:ingredients_attributes]["#{i}"])
 			end
 			@recipe.ingredients.each do |i|
 				i.delete if i.name.blank?

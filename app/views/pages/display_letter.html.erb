@@ -1,0 +1,12 @@
+<% @alpha_sorted_recipes.each do |r| %>
+	<% if r.title[0] == @letter %>
+		<h3><%= r.title %></h3>
+		<p><%= r.instruction.gsub(/\n/, '<br/>').html_safe %></p>
+		<h5>Ingredients</h5>
+		<ul>
+			<% r.ingredients.each do |i| %>
+				<li><%= i.name %></li>
+			<% end %>
+		</ul>
+	<% end %>
+<% end %>

@@ -1,7 +1,6 @@
-<%= link_to "Add a Recipe", new_path %>
-<br/>
-<hr/>
-<h4>See All</h4>
-<% Category.all.each do |c| %>
-	<%= link_to "#{c.title}", display_path(id: c.id) %><br/>
-<% end %>
+<div class = "text-center">
+	<h4>See All</h4>
+	<% Category.all.each do |c| %>
+		<%= link_to "#{c.title}", display_path(id: c.id) %><br/>
+	<% end %>
+</div>

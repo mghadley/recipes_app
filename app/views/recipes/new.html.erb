@@ -1,20 +1,24 @@
-<%= form_for(@recipe, :url => create_path) do |f| %>
-	<%= f.label :category %>
-	<%= f.select :category_id, options_for_select(Category.all.map{|c|[c.title, c.id]}) %>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_for(@recipe, :url => create_path) do |f| %>
+			<%= f.label :category %>
+			<%= f.select :category_id, options_for_select(Category.all.map{|c|[c.title, c.id]}) %>
 
-	<%= f.label :title %>
-	<%= f.text_field :title%>
+			<%= f.label :title %>
+			<%= f.text_field :title%>
 
-	<%= f.label :instruction %>
-	<%= f.text_area(:instruction, size: "50x10") %>
+			<%= f.label :instruction, "Instructions" %>
+			<%= f.text_area(:instruction, size: "50x10") %>
 
-	<h3>Ingredients</h3>
-	<p>Example: 1/2 Cups Sugar</p>
+			<h3>Ingredients</h3>
+			<p>Example: 1/2 Cups Sugar</p>
 
-	<%= f.fields_for :ingredients do |i| %>
-		<%= i.label :name %>
-		<%= i.text_field :name %>
-	<% end %>
+			<%= f.fields_for :ingredients do |i| %>
+				<%= i.label :name, class: "hidden" %>
+				<%= i.text_field :name %>
+			<% end %>
 
-	<%= f.submit "Submit" %>
-<% end %>
+			<%= f.submit "Submit" %>
+		<% end %>
+	</div>
+</div>

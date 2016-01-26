@@ -1,7 +1,7 @@
 <% @recipes.each do |r| %>
 	<h3><%= r.title %></h3>
 	<p><%= r.instruction.gsub(/\n/, '<br/>').html_safe %></p>
-	<h4>Ingredients</h4>
+	<h5>Ingredients</h5>
 	<ul>
 		<% r.ingredients.each do |i| %>
 			<li><%= i.name %></li>

@@ -1,3 +1,5 @@
-<% ("A".."Z").each do |l| %>
-	<%= link_to "#{l}", display_letter_path(id: l) %>
-<% end %>
+<div class="text-center">
+	<% ("A".."Z").each do |l| %>
+		<%= link_to "#{l}", display_letter_path(id: l) %>
+	<% end %>
+</div>

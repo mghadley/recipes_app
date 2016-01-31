@@ -8,16 +8,15 @@ class RecipesController < ApplicationController
 	end
 
 	def create
-		@recipe = Recipe.new(title: safe_params[:title].titleize, instruction: safe_params[:instruction], 
-												 category_id: safe_params[:category_id])
+		@recipe = Recipe.new(safe_params)
 		if @recipe.save
-			20.times do |i|
-			  @recipe.ingredients << Ingredient.find_or_create_by(ingredient_params[:ingredients_attributes]["#{i}"])
-			end
-			@recipe.ingredients.each do |i|
-				i.delete if i.name.blank?
-			end
-			#render body: YAML::dump(ingredient_params[:ingredients_attributes][:id])
+			#ingredient_params[:ingredients_attributes].each do |key, value|
+				#@recipe.ingredients << Ingredient.find_or_create_by(value)
+			#end
+			#@recipe.ingredients.each do |i|
+				#i.delete if i.name.blank?
+			#end
+			#render body: YAML::dump(safe_params)
 			redirect_to index_path(id: @recipe.id)
 		else
 			redirect_to new_path
@@ -27,7 +26,7 @@ class RecipesController < ApplicationController
 private
 
 	def safe_params
-		params.require(:recipe).permit(:title, :instruction, :category_id)
+		params.require(:recipe).permit(:title, :instruction, :category_id, ingredients_attributes: [:name])
 	end
 
 	def ingredient_params

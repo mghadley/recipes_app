@@ -3,4 +3,11 @@
 	<% Category.all.each do |c| %>
 		<%= link_to "#{c.title}", display_path(id: c.id) %><br/>
 	<% end %>
+
+	<%= form_tag search_results_path, :method => 'get' do %>
+		<p>
+			<%= text_field_tag :search, params[:search] %>
+			<%= submit_tag "Search", :name => nil %>
+		</p>
+	<% end %>
 </div>

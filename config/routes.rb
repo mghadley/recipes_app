@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get  'display'        => 'pages#display'
   get  'display_alpha'  => 'pages#display_alpha'
   get  'display_letter' => 'pages#display_letter'
+  get  'search_results' => 'pages#search_results'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

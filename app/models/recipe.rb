@@ -7,6 +7,10 @@ class Recipe < ActiveRecord::Base
 	before_validation :find_ingredients
 	before_save { self.title = title.titleize }
 
+	def self.search(search)
+		where('title like ?', "%#{search}%")
+	end
+
 	private
 
 	def find_ingredients

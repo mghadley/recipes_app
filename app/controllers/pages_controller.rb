@@ -14,6 +14,10 @@ class PagesController < ApplicationController
   def display_alpha
   end
 
+  def search_results
+    @recipes = Recipe.search(params[:search])
+  end
+
   def display_letter
   	@alpha_sorted_recipes = Recipe.all.sort_by{|r| r.title}
   	@letter = params[:id]

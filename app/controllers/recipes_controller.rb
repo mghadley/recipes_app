@@ -17,8 +17,10 @@ class RecipesController < ApplicationController
 				#i.delete if i.name.blank?
 			#end
 			#render body: YAML::dump(safe_params)
+			flash[:success] = "Recipe created successfully"
 			redirect_to index_path(id: @recipe.id)
 		else
+			flash[:danger] = "#{@recipe.title.titleize} recipe already exists"
 			redirect_to new_path
 		end
 	end

@@ -5,7 +5,8 @@ class CreateRecipeTest < ActionDispatch::IntegrationTest
   	get new_path
   	assert_difference 'Recipe.count', 1 do
 	  	post_via_redirect create_path, recipe: { title: "Chicken", instruction: "Slow cook it", category_id: 1,
-	  																					 ingredients_attributes: {0 => {name: "Meat"}, 1 => {name: "Marinade"}, 2 => {name: ""}}}
+	  																					 ingredients_attributes: {0 => {name: "Meat"}, 1 => {name: "Marinade"}, 
+	  																					 2 => {name: ""}}}
 	  end
 	  assert_template 'pages/index'
 	  Recipe.last.ingredients.each do |i|

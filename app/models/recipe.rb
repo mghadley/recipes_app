@@ -12,6 +12,7 @@ class Recipe < ActiveRecord::Base
 			where('title ILIKE ?', "%#{search}%")
 		else
 			where('title like ?', "%#{search}%")
+		end
 	end
 
 	private

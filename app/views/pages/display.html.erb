@@ -1,10 +1,26 @@
-<% @recipes.each do |r| %>
-	<h3><%= r.title %></h3>
-	<p><%= r.instruction.gsub(/\n/, '<br/>').html_safe %></p>
-	<h5>Ingredients</h5>
-	<ul>
-		<% r.ingredients.each do |i| %>
-			<li><%= i.name %></li>
+<% if @recipes.empty? %>
+	<h2>Nothing here :/</h2>
+<% else %>
+	<div>
+		<p>
+			<%= form_tag display_path, :method => 'get' do %>
+			<p>
+				<%= text_field_tag :search, params[:search] %>
+				<%= submit_tag "Search", :name => nil %>
+				<%= hidden_field_tag :id, @category.id %>
+			</p>
 		<% end %>
-	</ul>
+		</p>
+	</div>
+
+	<% @recipes.each do |r| %>
+		<h3><%= r.title %></h3>
+		<p><%= r.instruction.gsub(/\n/, '<br/>').html_safe %></p>
+		<h5>Ingredients</h5>
+		<ul>
+			<% r.ingredients.each do |i| %>
+				<li><%= i.name %></li>
+			<% end %>
+		</ul>
+	<% end %>
 <% end %>

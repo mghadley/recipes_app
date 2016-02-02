@@ -8,7 +8,8 @@ class PagesController < ApplicationController
 
   def display
   	@category = Category.find(params[:id])
-  	@recipes = Recipe.where(category_id: params[:id]).sort_by{|r| r.title}
+  	#@recipes = Recipe.where(category_id: params[:id]).sort_by{|r| r.title}
+    @recipes = Recipe.where(category_id: params[:id]).search(params[:search]).sort_by{|r| r.title}
   end
 
   def display_alpha

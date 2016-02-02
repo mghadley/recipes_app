@@ -9,7 +9,7 @@ class Recipe < ActiveRecord::Base
 
 	def self.search(search)
 		if Rails.env.production
-			where('title ilike ?', "%#{search}%")
+			where('title ILIKE ?', "%#{search}%")
 		else
 			where('title like ?', "%#{search}%")
 	end

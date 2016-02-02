@@ -8,9 +8,9 @@ class Recipe < ActiveRecord::Base
 	before_save { self.title = title.titleize }
 
 	def self.search(search)
-		if Rails.env.production
-			where('title ilike ?', "%#{search}%")
-		else
+		#if Rails.env.production
+			#where('title ilike ?', "%#{search}%")
+		#else
 			where('title like ?', "%#{search}%")
 	end
 

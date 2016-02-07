@@ -22,5 +22,8 @@
 				<li><%= i.name %></li>
 			<% end %>
 		</ul>
+		<% if admin? %>
+			<%= link_to "Edit", edit_path(id: r.id) %>
+		<% end %>
 	<% end %>
 <% end %>

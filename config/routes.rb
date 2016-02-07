@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get    'login'          => 'session#new'
   post   'login'          => 'session#create'
   delete 'logout'         => 'session#destroy'
+  patch  'update'         => 'recipes#update'
+  get    'edit'           => 'recipes#edit'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

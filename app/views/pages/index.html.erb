@@ -4,8 +4,11 @@
 <ul>
 	<% @recipe.ingredients.each do |i| %>
 		<li><%= i.name %></li>
-<% end %>
+	<% end %>
 </ul>
+<% if admin? %>
+	<%= link_to "Edit", edit_path(id: @recipe.id) %>
+<% end %>
 
 
 <!--<%= debug @recipe %>-->

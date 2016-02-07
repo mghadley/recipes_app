@@ -18,6 +18,21 @@ class RecipesController < ApplicationController
 		end
 	end
 
+	def edit
+		@recipe = Recipe.find(params[:id])
+	end
+
+	def update
+		@recipe = Recipe.find(params[:id])
+		if @recipe.update_attributes(safe_params)
+			flash[:success] = "Recipe updated successfully"
+			redirect_to index_path(id: @recipe.id)
+		else
+			flash[:danger] = "Something went wrong. Did you select a category? Leave out the title?"
+			redirect_to edit_path(id: @recipe.id)
+		end
+	end
+
 private
 
 	def safe_params

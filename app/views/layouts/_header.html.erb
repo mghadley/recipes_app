@@ -1,0 +1,14 @@
+<div class="navbar navbar-fixed-top navbar-inverse">
+	<%= link_to "Home", root_path %>
+	<br/>
+	<%= link_to "View Alphabetically", display_alpha_path %>
+	<br/>
+	<% if admin? %>
+		<%= link_to "Add a Recipe", new_path %>
+		<br/>
+		<%= link_to "Log out as admin", logout_path, :method => :delete %>
+		<br/>
+	<% else %>
+		<%= link_to "Log in as admin", login_path %>
+	<% end %>
+</div>

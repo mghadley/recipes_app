@@ -1,18 +1,23 @@
 Rails.application.routes.draw do
+  get 'session/new'
+
   get 'pages/home'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'pages#home'
-  get  'new'            => 'recipes#new'
-  post 'create'         => 'recipes#create'
-  get  'index'          => 'pages#index'
-  get  'display'        => 'pages#display'
-  get  'display_alpha'  => 'pages#display_alpha'
-  get  'display_letter' => 'pages#display_letter'
-  get  'search_results' => 'pages#search_results'
+  root   'pages#home'
+  get    'new'            => 'recipes#new'
+  post   'create'         => 'recipes#create'
+  get    'index'          => 'pages#index'
+  get    'display'        => 'pages#display'
+  get    'display_alpha'  => 'pages#display_alpha'
+  get    'display_letter' => 'pages#display_letter'
+  get    'search_results' => 'pages#search_results'
+  get    'login'          => 'session#new'
+  post   'login'          => 'session#create'
+  delete 'logout'         => 'session#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

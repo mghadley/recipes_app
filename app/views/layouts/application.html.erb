@@ -18,7 +18,14 @@
 	<br/>
 	<%= link_to "View Alphabetically", display_alpha_path %>
 	<br/>
-	<%= link_to "Add a Recipe", new_path %>
+	<% if admin? %>
+		<%= link_to "Add a Recipe", new_path %>
+		<br/>
+		<%= link_to "Log out as admin", logout_path, :method => :delete %>
+		<br/>
+	<% else %>
+		<%= link_to "Log in as admin", login_path %>
+	<% end %>
 	
 </div>
 

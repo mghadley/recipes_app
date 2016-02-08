@@ -15,13 +15,14 @@
 
 	<% @recipes.each do |r| %>
 		<h3><%= r.title %></h3>
-		<p><%= r.instruction.gsub(/\n/, '<br/>').html_safe %></p>
 		<h5>Ingredients</h5>
 		<ul>
 			<% r.ingredients.each do |i| %>
 				<li><%= i.name %></li>
 			<% end %>
 		</ul>
+		<h5>Instructions</h5>
+		<p><%= r.instruction.gsub(/\n/, '<br/>').html_safe %></p>
 		<% if admin? %>
 			<%= link_to "Edit", edit_path(id: r.id) %>
 		<% end %>

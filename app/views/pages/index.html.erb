@@ -1,11 +1,12 @@
 <h3><%= @recipe.title %></h3>
-<p><%= @recipe.instruction.gsub(/\n/, '<br/>').html_safe %></p>
 <h5>Ingredients</h5>
 <ul>
 	<% @recipe.ingredients.each do |i| %>
 		<li><%= i.name %></li>
 	<% end %>
 </ul>
+<h5>Instructions</h5>
+<p><%= @recipe.instruction.gsub(/\n/, '<br/>').html_safe %></p>
 <% if admin? %>
 	<%= link_to "Edit", edit_path(id: @recipe.id) %>
 <% end %>

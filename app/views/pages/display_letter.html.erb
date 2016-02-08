@@ -7,7 +7,7 @@
 				<li><%= i.name %></li>
 			<% end %>
 		</ul>
-		<h5>Insturctions</h5>
+		<h5>Instructions</h5>
 		<p><%= r.instruction.gsub(/\n/, '<br/>').html_safe %></p>
 		<% if admin? %>
 			<%= link_to "Edit", edit_path(id: r.id) %>

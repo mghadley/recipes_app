@@ -22,22 +22,38 @@
 	margin-top: 12px;
 }
 
+.home {
+	background-image: url(/cooking.jpg);
+	background-size: cover;
+}
+
 .panel {
-	background-color: #999999;
+	background-color: rgba(156,149,149,0.4);
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.panel-horizontal {
+	width: 700px;
+}
+
+.panel-vertical {
+	width: 350px;
 }
 
 .menu {
 	a:link {
 		font-size: 2.2em;
 		font-family: calibri;
-		color: #305C99;
+		color: #ffffff;
 	}
 	a:hover {
 		font-weight: bold;
 		text-decoration: none;
 	}
 	a:visited {
-		color: #305C99;
+		color: #ffffff;
 	}
 }
 
@@ -59,7 +75,7 @@ body {
 }
 
 .navbar {
-	background-color: #99ccff;
+	background-color: #B8C8D2;
 	padding-left: 15px;
 	a {
 		color: #003366

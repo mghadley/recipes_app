@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    render :layout => "home_layout" 
   end
 
   def index
@@ -13,6 +14,7 @@ class PagesController < ApplicationController
   end
 
   def display_alpha
+    render :layout => "home_layout"
   end
 
   def search_results

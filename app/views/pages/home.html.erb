@@ -1,9 +1,8 @@
-<div class = "text-center panel panel-default">
+<div class = "text-center panel panel-default panel-vertical">
 	<h1>See All</h1>
 	<div class="menu">
 		<% Category.all.each do |c| %>
 			<%= link_to "#{c.title}", display_path(id: c.id) %><br/>
 		<% end %>
 	</div>
-
 </div>

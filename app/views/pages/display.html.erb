@@ -1,18 +1,20 @@
 <% if @recipes.empty? %>
 	<h2>Nothing here :/</h2>
 <% else %>
-	<div>
-		<p>
-			<%= form_tag display_path, :method => 'get' do %>
+	<h1 class="text-center"><%= @category.title %></h1>
+	<% if @recipes.count > 4 %>
+		<div>
 			<p>
-				<%= text_field_tag :search, params[:search] %>
-				<%= submit_tag "Search", :name => nil %>
-				<%= hidden_field_tag :id, @category.id %>
+				<%= form_tag display_path, :method => 'get' do %>
+				<p>
+					<%= text_field_tag :search, params[:search] %>
+					<%= submit_tag "Search #{@category.title}", :name => nil %>
+					<%= hidden_field_tag :id, @category.id %>
+				</p>
+			<% end %>
 			</p>
-		<% end %>
-		</p>
-	</div>
-
+		</div>
+	<% end %>
 	<% @recipes.each do |r| %>
 		<h3><%= r.title %></h3>
 		<h5>Ingredients</h5>

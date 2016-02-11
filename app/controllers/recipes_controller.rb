@@ -20,6 +20,9 @@ class RecipesController < ApplicationController
 
 	def edit
 		@recipe = Recipe.find(params[:id])
+		(20 - @recipe.ingredients.count).times do
+			@recipe.ingredients.build
+		end
 	end
 
 	def update
@@ -32,11 +35,11 @@ class RecipesController < ApplicationController
 			redirect_to edit_path(id: @recipe.id)
 		end
 	end
-
+	
 private
 
 	def safe_params
-		params.require(:recipe).permit(:title, :instruction, :category_id, ingredients_attributes: [:name])
+		params.require(:recipe).permit(:title, :instruction, :category_id, ingredients_attributes: [:id, :name, :_destroy])
 	end
 
 end

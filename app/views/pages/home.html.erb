@@ -1,13 +1,9 @@
 <div class = "text-center">
-	<h4>See All</h4>
-	<% Category.all.each do |c| %>
-		<%= link_to "#{c.title}", display_path(id: c.id) %><br/>
-	<% end %>
+	<h1>See All</h1>
+	<div id="main-menu">
+		<% Category.all.each do |c| %>
+			<%= link_to "#{c.title}", display_path(id: c.id) %><br/>
+		<% end %>
+	</div>
 
-	<%= form_tag search_results_path, :method => 'get' do %>
-		<p>
-			<%= text_field_tag :search, params[:search] %>
-			<%= submit_tag "Search", :name => nil %>
-		</p>
-	<% end %>
 </div>

@@ -17,6 +17,8 @@
 				<p>Example: 1/2 Cups Sugar</p>
 
 				<%= f.fields_for :ingredients do |i| %>
+					<%= f.label :_destroy, class: "hidden" %>
+					<%= f.check_box :_destroy %>
 					<%= i.label :name, class: "hidden" %>
 					<%= i.text_field :name %>
 				<% end %>

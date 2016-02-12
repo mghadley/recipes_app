@@ -8,7 +8,7 @@
 				<%= form_tag display_path, :method => 'get' do %>
 				<p>
 					<%= text_field_tag :search, params[:search] %>
-					<%= submit_tag "Search #{@category.title}", :name => nil %>
+					<%= submit_tag "Search #{@category.title}", :name => nil, class: "btn" %>
 					<%= hidden_field_tag :id, @category.id %>
 				</p>
 			<% end %>

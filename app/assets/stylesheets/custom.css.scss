@@ -20,7 +20,7 @@
 }
 
 #logo:hover {
-	color: #999999;
+	color: #373535;
 }
 
 #search{
@@ -84,20 +84,23 @@
 	margin-bottom: 10px;
 }
 
+.btn-primary {
+	background-color: #F0D218;
+	border: none;
+	color: #373535;
+}
+
 body {
 	padding-top: 80px;
 	font-family: tahoma;
 }
 
 .navbar {
-	background-color: #5F944A;
+	background-color: rgba(95,148,74,0.8);
 	padding-left: 15px;
 	border: none;
 	a {
 		color: #003366;
-	}
-	a:visited {
-		color: #ffffff;
 	}
 }
 

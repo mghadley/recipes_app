@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Category.create([{title: "Appetizers"}, {title: "Soups"}, {title: "Main Dishes"}, {title: "Breakfast"}, {title: "Beverages"},
-								 {title: "Desserts"}, {title: "Breads"}, {title: "Side Dishes"}, {title: "Snacks"}, {title: "Misc."}, 
-								 {title: "Canning"}])
+arr = ["Appetizers", "Soups", "Main Dishes", "Breakfast", "Beverages", "Desserts", "Breads", "Side Dishes", "Snacks", "Misc.", 
+			 "Canning", "Salads"]
+
+arr.each do |category|
+	Category.find_or_create_by(title: category)
+end
+

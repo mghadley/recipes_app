@@ -6,7 +6,7 @@
 				<%= f.select :category_id, options_for_select(Category.all.map{|c|[c.title, c.id]}) %>
 
 				<%= f.label :title %>
-				<%= f.text_field :title%>
+				<%= f.text_field :title %>
 
 				<%= f.label :instruction, "Instructions" %>
 				<%= f.text_area(:instruction, size: "50x10") %>
